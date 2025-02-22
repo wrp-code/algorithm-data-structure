@@ -18,6 +18,7 @@ public class C03_EvenTimesOddTimes {
      */
     public void oddTimes(int[] arr) {
         int e = 0;
+        // 相同的数，异或后=0， a ^ a = 0;
         for (int i : arr) {
             e ^= i;
         }

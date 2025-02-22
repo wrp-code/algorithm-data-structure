@@ -4,7 +4,7 @@ import com.wrp.algorithm.my.common.ArrayUtils;
 import com.wrp.algorithm.my.common.ComparatorUtils;
 
 /**
- * 快排v3 O(NlogN)
+ * 快排v3 O(NlogN); 空间复杂度 O(logN),即递归的次数平均值
  * 1. 随机值一个数与最后一位交换，拿数组最后一个数，让小于这个数在数组左边，等于的在中间，大于的在右边
  * 2. 交换最后一个数和大于的右边的第一个数
  * 3. 左右两边重复1，2操作

@@ -16,8 +16,9 @@ public class C02_BubbleSort {
         }
 
         for (int i = arr.length - 1; i > 0; i--) {
+            // 遍历j，每次将最大的值放在i。
             for (int j = 0; j < i; j++) {
-                if(arr[j] < arr[j + 1]) {
+                if(arr[j] > arr[j + 1]) {
                     ArrayUtils.swap(arr, j, j + 1);
                 }
             }
