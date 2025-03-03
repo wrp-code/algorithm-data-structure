@@ -1,4 +1,6 @@
-package com.wrp.nc;
+package com.wrp.nc.nc;
+
+import com.wrp.nc.ListNode;
 
 /**
  * @author wrp

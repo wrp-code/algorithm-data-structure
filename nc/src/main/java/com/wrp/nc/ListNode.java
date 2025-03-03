@@ -5,8 +5,8 @@ package com.wrp.nc;
  * @since 2025年02月20日 20:26
  */
 public class ListNode {
-    int val;
-    ListNode next = null;
+    public int val;
+    public ListNode next = null;
 
     ListNode(int val) {
         this.val = val;

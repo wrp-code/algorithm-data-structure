@@ -1,6 +1,4 @@
-package com.wrp.nc;
-
-import java.util.Arrays;
+package com.wrp.nc.nc;
 
 /**
  * @author wrp

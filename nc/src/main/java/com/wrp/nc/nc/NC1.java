@@ -1,4 +1,4 @@
-package com.wrp.nc;
+package com.wrp.nc.nc;
 
 import java.util.Stack;
 
