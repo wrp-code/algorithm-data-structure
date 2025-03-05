@@ -1,17 +1,16 @@
-## 题目一
+package com.wrp.algorithm.my.basic.chp5;
 
-> 用递归和非递归两种方式实现二叉树的先序、中序、后序遍历
->
-> 如何直观的打印一颗二叉树 
->
-> 如何完成二叉树的宽度优先遍历(常见题目：求一棵二叉树的宽度)
+import com.wrp.algorithm.my.common.TreeNode;
 
-1. 什么是递归序？
+import java.util.Stack;
 
-> 每个节点都会被访问三次。
+/**
+ * @author wrp
+ * @since 2025-03-05 07:33
+ **/
+public class Question01 {
 
-```java
-	public void f(TreeNode root) {
+    public void f(TreeNode root) {
         // 1
         if(root == null) {
             return;
@@ -24,18 +23,8 @@
         // 3
         // 3
     }
-```
 
-![递归序](../img/af8ad725d46bf6a3753e65462129e24c.png)
-
-递归序为：124442555213666377731
-
-2. 先序遍历（头左右，递归序第一次出现时打印）
-
-> 1245367
-
-```java
-	public void preOrderRecursion(TreeNode root) {
+    public void preOrderRecursion(TreeNode root) {
         if(root == null) {
             return;
         }
@@ -43,9 +32,8 @@
         f(root.left());
         f(root.right());
     }
- 
-	// 自己压栈，头出栈，打印，右左入栈，依次循环
-	public void preOrderUnRecursion(TreeNode root) {
+
+    public void preOrderUnRecursion(TreeNode root) {
         if(root == null) return;
         Stack<TreeNode> stack = new Stack<>();
         stack.push(root);
@@ -60,16 +48,8 @@
             }
         }
     }
-```
 
-
-
-3. 中序遍历（左头右，递归序第二次出现时打印）
-
-> 4251637
-
-```java
-	public void inOrderRecursion(TreeNode root) {
+    public void inOrderRecursion(TreeNode root) {
         if(root == null) {
             return;
         }
@@ -78,8 +58,7 @@
         f(root.right());
     }
 
-	// 自己压栈、二叉树左边界入栈，指向null时，弹出栈，并打印，指向右子树，循环往复
-	public void inOrderUnRecursion(TreeNode root) {
+    public void inOrderUnRecursion(TreeNode root) {
         if(root == null) {
             return;
         }
@@ -95,16 +74,8 @@
             }
         }
     }
-```
 
-
-
-4. 后序遍历（左右头，递归序第三次出现时打印）
-
-> 4526731
-
-```java
-	public void afterOrderRecursion(TreeNode root) {
+    public void afterOrderRecursion(TreeNode root) {
         if(root == null) {
             return;
         }
@@ -113,8 +84,7 @@
         System.out.println(root.value());
     }
 
-	// 两个栈，头出栈1入栈2，右左入栈1，至栈1空，依次弹出栈2并打印
-	public void afterOrderUnRecursion(TreeNode root) {
+    public void afterOrderUnRecursion(TreeNode root) {
         if(root == null) {
             return;
         }
@@ -136,10 +106,4 @@
             System.out.println(outStack.pop().value());
         }
     }
-```
-
-
-
-## 总结
-
-1. 任何递归都可以转为非递归（递归的本质是利用系统栈，可以改为自定义栈进行操作）
+}

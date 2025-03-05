@@ -1,6 +1,6 @@
 package com.wrp.algorithm.my.basic.chp5;
 
-import com.wrp.algorithm.my.common.Node;
+import com.wrp.algorithm.my.common.ListNode;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -17,13 +17,13 @@ public class Question11 {
      * @param head2 头2
      * @return 相交返回相交节点，反之null.
      */
-    public Node getIntersectNode(Node head1, Node head2) {
+    public ListNode getIntersectNode(ListNode head1, ListNode head2) {
         if(head1 == null || head2 == null) {
             return null;
         }
         // 获取两个链表的入环节点
-        Node loopNode1 = getInNodeIfHasCircleWithSlowFastNode(head1);
-        Node loopNode2 = getInNodeIfHasCircleWithSlowFastNode(head2);
+        ListNode loopNode1 = getInNodeIfHasCircleWithSlowFastNode(head1);
+        ListNode loopNode2 = getInNodeIfHasCircleWithSlowFastNode(head2);
         // 如果两个都没环
         if(loopNode1 == null && loopNode2 == null) {
             return getIntersectionNodeOfNoCircle(head1, head2);
@@ -41,9 +41,9 @@ public class Question11 {
      * @param head 头
      * @return 入环节点，无环时返回null
      */
-    public Node getInNodeIfHasCircleWithMap(Node head) {
-        Set<Node> usedNodes = new HashSet<>();
-        Node currentNode = head;
+    public ListNode getInNodeIfHasCircleWithMap(ListNode head) {
+        Set<ListNode> usedNodes = new HashSet<>();
+        ListNode currentNode = head;
         while(currentNode != null) {
             if(usedNodes.contains(currentNode)) {
                 return currentNode;
@@ -59,12 +59,12 @@ public class Question11 {
      * @param head 头
      * @return 入环节点，无环时返回null
      */
-    public Node getInNodeIfHasCircleWithSlowFastNode(Node head) {
+    public ListNode getInNodeIfHasCircleWithSlowFastNode(ListNode head) {
         if(head == null || head.next() == null) {
             return null;
         }
-        Node fast = head.next().next();
-        Node slow = head.next();
+        ListNode fast = head.next().next();
+        ListNode slow = head.next();
         while(fast != slow) {
             if(fast == null || fast.next() == null) {
                 return null;
@@ -86,11 +86,11 @@ public class Question11 {
      * @param head2 头
      * @return 相交节点，如果不相交返回null
      */
-    public Node getIntersectionNodeOfNoCircle(Node head1, Node head2) {
+    public ListNode getIntersectionNodeOfNoCircle(ListNode head1, ListNode head2) {
         if(head1 == null || head2 == null) {
             return null;
         }
-        Node cur1 = head1;
+        ListNode cur1 = head1;
         // n代表两个链表的差值
         int n = 0;
         while(cur1.next() != null) {
@@ -98,7 +98,7 @@ public class Question11 {
             cur1 = cur1.next();
         }
 
-        Node cur2 = head2;
+        ListNode cur2 = head2;
         while(cur2.next() != null) {
             n--;
             cur2 = cur2.next();
@@ -133,18 +133,18 @@ public class Question11 {
      * @param node2 入环节点2
      * @return 相交节点
      */
-    public Node getIntersectionNodeOfCircle(Node head1, Node node1, Node head2, Node node2) {
+    public ListNode getIntersectionNodeOfCircle(ListNode head1, ListNode node1, ListNode head2, ListNode node2) {
         if(node1 == node2) {
             return getIntersectionNodeOfCircleWithEqualInNode(head1, head2, node1);
         }
         return getIntersectionNodeOfCircleWithNoEqualInNode(head1, node1, head2, node2);
     }
 
-    public Node getIntersectionNodeOfCircleWithEqualInNode(Node head1, Node head2, Node inNode) {
+    public ListNode getIntersectionNodeOfCircleWithEqualInNode(ListNode head1, ListNode head2, ListNode inNode) {
         if(head1 == null || head2 == null) {
             return null;
         }
-        Node cur1 = head1;
+        ListNode cur1 = head1;
         // n代表两个链表的差值
         int n = 0;
         while(cur1.next() != inNode) {
@@ -152,7 +152,7 @@ public class Question11 {
             cur1 = cur1.next();
         }
 
-        Node cur2 = head2;
+        ListNode cur2 = head2;
         while(cur2.next() != inNode) {
             n--;
             cur2 = cur2.next();
@@ -179,8 +179,8 @@ public class Question11 {
         return cur1;
     }
 
-    public Node getIntersectionNodeOfCircleWithNoEqualInNode(Node head1, Node node1, Node head2, Node node2) {
-        Node cur = node1.next();
+    public ListNode getIntersectionNodeOfCircleWithNoEqualInNode(ListNode head1, ListNode node1, ListNode head2, ListNode node2) {
+        ListNode cur = node1.next();
         while(cur != node1) {
             if(cur == node2) {
                 // 任意返回node1，node2
