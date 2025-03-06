@@ -1,5 +1,6 @@
 package com.wrp.algorithm.my.basic.chp5;
 
+import com.sun.source.tree.Tree;
 import com.wrp.algorithm.my.common.TreeNode;
 
 import java.util.LinkedList;
@@ -63,4 +64,40 @@ public class Q2_BST {
         }
         return true;
     }
+
+    public boolean isBST_DP(TreeNode node) {
+        ReturnInfo returnInfo = process(node);
+        return returnInfo.isBST;
+    }
+
+    public ReturnInfo process(TreeNode node) {
+        if(node == null )return null;
+
+        ReturnInfo left = process(node.left());
+        ReturnInfo right = process(node.right());
+
+        int min = node.value();
+        int max = node.value();
+        if(left != null) {
+            min = Math.min(min, left.min);
+            max = Math.max(max, left.max);
+        }
+        if(right != null) {
+            min = Math.min(min, right.min);
+            max = Math.max(max, right.max);
+        }
+
+        boolean isBST = true;
+        if(left != null && (!left.isBST || left.max >= node.value())) {
+            isBST = false;
+        }
+        if(right != null && (!right.isBST || right.min <= node.value())) {
+            isBST = false;
+        }
+
+        return new ReturnInfo(isBST, min, max);
+
+    }
+
+    public record ReturnInfo(boolean isBST, int min, int max) {}
 }
