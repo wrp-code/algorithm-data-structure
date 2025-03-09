@@ -205,8 +205,36 @@ public class Graph {
         Map<Node, Integer> res = new HashMap<>();
         res.put(node, 0);
 
+        Set<Node> visitedSet = new HashSet<>();
+        Node minNode = getMinNode(res, visitedSet);
+        while(minNode != null) {
+            int distance = res.get(minNode);
+            for(Edge edge : minNode.edges) {
+                Node toNode = edge.to;
+                if(!res.containsKey(toNode)) {
+                    res.put(toNode, distance + edge.weight);
+                } else {
+                    res.put(toNode, Math.min(res.get(toNode), distance + edge.weight));
+                }
+            }
+            visitedSet.add(minNode);
+            minNode = getMinNode(res, visitedSet);
+        }
 
         return res;
+    }
+
+    private static Node getMinNode(Map<Node, Integer> res, Set<Node> visitedSet) {
+        Node minNode = null;
+        int minDistance = Integer.MAX_VALUE;
+        for (Map.Entry<Node, Integer> entry : res.entrySet()) {
+            if(!visitedSet.contains(entry.getKey()) && entry.getValue() < minDistance) {
+                minNode = entry.getKey();
+                minDistance = entry.getValue();
+            }
+        }
+
+        return minNode;
     }
 
     public static class MyUnionSet {
