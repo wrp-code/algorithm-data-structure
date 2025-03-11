@@ -1,5 +1,7 @@
 package com.wrp.algorithm.zuo.basic.chp8;
 
+import com.wrp.algorithm.my.basic.pretrie.NQueue;
+
 public class Code09_NQueens {
 
 	public static int num1(int n) {
@@ -70,6 +72,11 @@ public class Code09_NQueens {
 
 		start = System.currentTimeMillis();
 		System.out.println(num1(n));
+		end = System.currentTimeMillis();
+		System.out.println("cost time: " + (end - start) + "ms");
+
+		start = System.currentTimeMillis();
+		System.out.println(NQueue.res(n));
 		end = System.currentTimeMillis();
 		System.out.println("cost time: " + (end - start) + "ms");
 
