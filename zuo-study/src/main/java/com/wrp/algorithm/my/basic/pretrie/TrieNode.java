@@ -9,7 +9,13 @@ import java.util.Map;
  * @since 2025-03-10 19:19
  **/
 public class TrieNode {
+    /**
+     * 通过此节点的字符数量
+     */
     public int pass;
+    /**
+     * 以此节点结尾的字符数量
+     */
     public int end;
     public Map<Character, TrieNode> nexts;// TrieNode[] nexts;字符不多时可以用
 

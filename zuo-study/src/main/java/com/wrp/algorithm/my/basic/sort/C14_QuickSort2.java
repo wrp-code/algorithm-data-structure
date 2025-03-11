@@ -1,4 +1,4 @@
-package com.wrp.algorithm.my.basic;
+package com.wrp.algorithm.my.basic.sort;
 
 import com.wrp.algorithm.my.common.ArrayUtils;
 import com.wrp.algorithm.my.common.ComparatorUtils;

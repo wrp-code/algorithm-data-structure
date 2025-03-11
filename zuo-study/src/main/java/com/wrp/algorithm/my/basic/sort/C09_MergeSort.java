@@ -1,4 +1,4 @@
-package com.wrp.algorithm.my.basic;
+package com.wrp.algorithm.my.basic.sort;
 
 /**
  * 归并排序
