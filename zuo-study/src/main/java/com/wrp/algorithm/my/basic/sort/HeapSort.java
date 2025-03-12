@@ -1,4 +1,4 @@
-package com.wrp.algorithm.my.basic.chp3;
+package com.wrp.algorithm.my.basic.sort;
 
 import com.wrp.algorithm.my.common.ArrayUtils;
 
