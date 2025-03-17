@@ -1,5 +1,7 @@
 package com.wrp.algorithm.zuo.basic.chp8;
 
+import com.wrp.algorithm.my.basic.recursive.MaxValueInWeight;
+
 public class Code07_Knapsack {
 
 	public static int maxValue1(int[] weights, int[] values, int bag) {
@@ -39,6 +41,7 @@ public class Code07_Knapsack {
 		int bag = 11;
 		System.out.println(maxValue1(weights, values, bag));
 		System.out.println(maxValue2(weights, values, bag));
+		System.out.println(MaxValueInWeight.maxValue(weights, values, bag));
 	}
 
 }

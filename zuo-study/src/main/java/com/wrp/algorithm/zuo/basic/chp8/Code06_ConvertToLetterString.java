@@ -1,5 +1,7 @@
 package com.wrp.algorithm.zuo.basic.chp8;
 
+import com.wrp.algorithm.my.basic.recursive.ConvertLetterResult;
+
 public class Code06_ConvertToLetterString {
 
 	public static int number(String str) {
@@ -34,7 +36,9 @@ public class Code06_ConvertToLetterString {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(number("11111"));
+		String number = "11111";
+		System.out.println(number(number));
+		System.out.println(ConvertLetterResult.convert(number));
 	}
 
 }
