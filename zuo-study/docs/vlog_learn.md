@@ -418,4 +418,141 @@ public class C005_Validator {
     }
 ```
 
-## 12. 
+## 12. 划分链表
+> 小于k的在左边，大于等于k的在右边，相对顺序不变
+> 
+```java
+    public static Node partition(Node head, int x) {
+        Node leftHead = null, leftTail = null;
+        Node rightHead = null, rightTail = null;
+        Node next;
+        while(head != null) {
+            next = head.next;
+            head.next = null;
+            if(head.val >= x) {
+                if(rightHead == null) {
+                    rightHead = head;
+                }else {
+                    rightTail.next = head;
+                }
+                rightTail = head;
+            } else {
+                if(leftHead == null) {
+                    leftHead = head;
+                }else {
+                    leftTail.next = head;
+                }
+                leftTail = head;
+            }
+            head = next;
+        }
+
+        if(leftHead == null){
+            return rightHead;
+        }
+        leftTail.next = rightHead;
+        return leftHead;
+    }
+```
+
+## 13. 队列和栈
+
+### 13.1 队列
+> 先进先出
+> 
+1. 链表实现
+```java
+    public static class Queue1 {
+        // 双端队列
+        Queue<Integer> queue = new LinkedList<>();
+
+        public boolean isEmpty() {
+            return queue.isEmpty();
+        }
+
+        public void offer(Integer integer) {
+            queue.offer(integer);
+        }
+
+        public Integer poll() {
+            return queue.poll();
+        }
+
+        public Integer peek() {
+            return queue.peek();
+        }
+    }
+```
+2. 数组实现
+```java
+    public static class Queue2 {
+        int[] arr;
+        int head;
+        int tail;
+
+        public Queue2(int n) {
+            arr = new int[n];
+            head = 0;
+            tail = 0;
+        }
+
+        public boolean isEmpty() {
+            return head == tail;
+        }
+
+        public void offer(Integer integer) {
+            arr[tail++] = integer;
+        }
+
+        public Integer poll() {
+            return arr[head--];
+        }
+
+        public Integer peek() {
+            return arr[head];
+        }
+
+        public int size() {
+            return tail - head;
+        }
+    }
+```
+
+3. 循环数组实现
+
+### 13.2 栈
+> 先进后出
+```java
+    public static class Stack1 {
+        Stack<Integer> stack = new Stack<>();
+    }
+
+    public static class Stack2 {
+        int[] arr;
+        int size;
+        public Stack2(int n) {
+            arr = new int[n];
+            size = 0;
+        }
+
+        public boolean isEmpty() {
+            return size == 0;
+        }
+
+        public void push(int num) {
+            arr[size++] = num;
+        }
+
+        public int pop() {
+            return arr[--size];
+        }
+
+        public int peek() {
+            return arr[size - 1];
+        }
+
+        public int size(){
+            return size;
+        }
+    }
+```
