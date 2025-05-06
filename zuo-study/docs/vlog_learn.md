@@ -877,3 +877,12 @@ public class C005_Validator {
 > - 中序遍历，使用栈实现
 >   - 树的左边界全部入栈，弹栈处理，再跳到右树，循环
 > - 后序遍历，使用一个/两个栈实现
+
+## 19. 笔试中的输入输出
+1. 填函数风格
+2. acm风格
+   - 规定测试数据量（BufferedReader、StreamTokenizer、PrintWriter)
+   - 按行读（BufferedReader、PrintWriter）
+   - 不要用Scanner、System.out，效率低
+3. 不推荐：临时动态分配空间
+4. 推荐：全局静态空间
