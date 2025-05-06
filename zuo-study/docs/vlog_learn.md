@@ -886,3 +886,14 @@ public class C005_Validator {
    - 不要用Scanner、System.out，效率低
 3. 不推荐：临时动态分配空间
 4. 推荐：全局静态空间
+
+## 20. 递归和master公式
+1. 递归本质上利用了系统栈空间
+2. 任何递归都可以改成非递归（工程上一定要改，算法笔试中能过就行）
+3. master公式
+   - 只能处理子问题规模相同的情况
+   - T(N) = a * T(N / b) + o(N^c^)
+   - log(a,b) < c， 复杂度： O(N^c^)
+   - log(a,b) > c， 复杂度： O(N^log(a,b)^)
+   - log(a,b) = c， 复杂度： O(N^c^ * logN)
+   - T(N) = 2 * T(N / 2) + o(N * logN)，复杂度为O(N*(logN)^2^)，记住即可
