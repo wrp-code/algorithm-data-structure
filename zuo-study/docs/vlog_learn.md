@@ -897,3 +897,12 @@ public class C005_Validator {
    - log(a,b) > c， 复杂度： O(N^log(a,b)^)
    - log(a,b) = c， 复杂度： O(N^c^ * logN)
    - T(N) = 2 * T(N / 2) + o(N * logN)，复杂度为O(N*(logN)^2^)，记住即可
+
+## 21. 归并排序
+> O(N * logN)，本质是没有浪费比较行为，每次合并后都形成了局部有序，所以比O(N^2^)快
+> 
+思路：
+1. 分左右两部分排好序
+2. 合并两部分
+3. base case： 左边界 = 右边界时返回
+
