@@ -9,8 +9,6 @@ import java.util.List;
  **/
 public class SlidingWindowMaxArray {
 
-
-
     public int[] maxArray(int[] data, int width) {
         if(data == null || data.length < width){
             return new int[0];
