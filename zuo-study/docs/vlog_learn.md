@@ -918,6 +918,8 @@ public class C005_Validator {
 ### 22.2 翻转对问题
 
 ## 23. 随机快排
+> 荷兰国旗版随机快排，空间O(logN) 时间O(N*logN)
+
 
 
 
