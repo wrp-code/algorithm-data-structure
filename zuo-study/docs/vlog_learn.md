@@ -922,4 +922,5 @@ public class C005_Validator {
 
 
 
-
+## 24. 随机选择算法
+> partition求无序数组中的第k大的数。 时间O(N)，空间O(1)
